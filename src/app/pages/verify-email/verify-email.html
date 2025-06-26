@@ -1,0 +1,58 @@
+<div class="verify-container">
+  <div class="verify-card">
+    <h1>Verify Your Email</h1>
+    <p class="subtitle" *ngIf="!success">Please enter the 6-digit code sent to your email</p>
+    <p class="subtitle success" *ngIf="success">
+      Email verified successfully! Redirecting to login...
+    </p>
+
+    <div class="info-box" *ngIf="!success">
+      <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <p>
+        Can't find the email? Please check your spam/junk folder. If you still haven't received it, you can request a new code in <span class="countdown">60</span> seconds.
+      </p>
+    </div>
+
+    <form [formGroup]="verifyForm" (ngSubmit)="onSubmit()" class="verify-form" *ngIf="!success">
+      <div class="form-group">
+        <label for="code">Verification Code</label>
+        <input
+          id="code"
+          type="text"
+          formControlName="code"
+          maxlength="6"
+          placeholder="Enter 6-digit code"
+          [class.invalid]="verifyForm.get('code')?.invalid && verifyForm.get('code')?.touched"
+        />
+        <div class="error-message" *ngIf="verifyForm.get('code')?.invalid && verifyForm.get('code')?.touched">
+          <span *ngIf="verifyForm.get('code')?.errors?.['required']">
+            Verification code is required
+          </span>
+          <span *ngIf="verifyForm.get('code')?.errors?.['minlength'] || verifyForm.get('code')?.errors?.['maxlength']">
+            Code must be exactly 6 digits
+          </span>
+        </div>
+      </div>
+
+      <div class="error-banner" *ngIf="error">
+        {{error}}
+      </div>
+
+      <button type="submit" [disabled]="verifyForm.invalid || loading">
+        <span *ngIf="!loading">Verify Email</span>
+        <span *ngIf="loading">Verifying...</span>
+      </button>
+    </form>
+
+    <div class="success-animation" *ngIf="success">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+    </div>
+  </div>
+</div>

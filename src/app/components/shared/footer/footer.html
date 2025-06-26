@@ -1,0 +1,52 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>ImageToText</h2>
+        <p>Transform your images into editable text with our powerful OCR technology.</p>
+        <div class="social-links">
+          <a *ngFor="let social of footerLinks.social" 
+             [href]="social.url" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="social-link">
+            {{ social.text }}
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="link-group">
+          <h3>Product</h3>
+          <ul>
+            <li *ngFor="let link of footerLinks.product">
+              <a [routerLink]="link.path">{{ link.text }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="link-group">
+          <h3>Company</h3>
+          <ul>
+            <li *ngFor="let link of footerLinks.company">
+              <a [routerLink]="link.path">{{ link.text }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="link-group">
+          <h3>Legal</h3>
+          <ul>
+            <li *ngFor="let link of footerLinks.legal">
+              <a [routerLink]="link.path">{{ link.text }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} ImageToText. All rights reserved.</p>
+    </div>
+  </div>
+</footer> 

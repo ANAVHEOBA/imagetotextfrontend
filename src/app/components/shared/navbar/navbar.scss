@@ -1,0 +1,113 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--bg-gray-100);
+  z-index: 1000;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-brand {
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: var(--text-gray);
+      font-weight: 500;
+      transition: color 0.2s ease;
+      padding: 0.5rem;
+
+      &:hover {
+        color: var(--primary-blue);
+      }
+
+      &.active {
+        color: var(--primary-blue);
+      }
+    }
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+
+      &.btn-secondary {
+        background: transparent;
+        color: var(--text-gray);
+        border: 1px solid var(--bg-gray-200);
+
+        &:hover {
+          background: var(--bg-gray-50);
+          border-color: var(--bg-gray-300);
+          color: var(--text-dark);
+        }
+      }
+
+      &.btn-primary {
+        background: var(--primary-blue);
+        color: white;
+
+        &:hover {
+          background: var(--primary-blue-dark);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .navbar {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-buttons {
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  }
+} 

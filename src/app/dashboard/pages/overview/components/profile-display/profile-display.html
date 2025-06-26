@@ -1,0 +1,45 @@
+<div class="profile-container">
+  <div *ngIf="isLoading" class="loading-state">
+    <p>Loading profile information...</p>
+  </div>
+
+  <div *ngIf="error" class="error-state">
+    <p>{{ error }}</p>
+  </div>
+
+  <div *ngIf="!isLoading && !error && profile" class="profile-content">
+    <div class="profile-header">
+      <h2>{{ profile.full_name }}</h2>
+      <span class="account-type">{{ profile.account_type }}</span>
+    </div>
+
+    <div class="profile-details">
+      <div class="detail-item">
+        <label>Email</label>
+        <p>{{ profile.email }}</p>
+      </div>
+
+      <div class="detail-item">
+        <label>Plan</label>
+        <p>{{ profile.plan }}</p>
+      </div>
+
+      <div class="detail-item">
+        <label>Conversions Used</label>
+        <p>{{ profile.conversion_count }}</p>
+      </div>
+
+      <div class="detail-item">
+        <label>Account Created</label>
+        <p>{{ accountCreatedDate | date:'mediumDate' }}</p>
+      </div>
+
+      <div class="detail-item">
+        <label>Verification Status</label>
+        <p [class.verified]="profile.is_verified">
+          {{ profile.is_verified ? 'Verified' : 'Not Verified' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

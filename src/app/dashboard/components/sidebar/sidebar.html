@@ -1,0 +1,50 @@
+<aside class="sidebar">
+  <!-- Logo and Brand -->
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <!-- Image Frame -->
+      <rect x="6" y="8" width="24" height="24" rx="2" fill="none" stroke="#1976d2" stroke-width="2"/>
+      <!-- Mountain (representing image) -->
+      <path d="M6 26l8-8 6 6 4-4 6 6" stroke="#1976d2" stroke-width="2" fill="none"/>
+      <!-- Sun -->
+      <circle cx="12" cy="14" r="2" fill="#1976d2"/>
+      <!-- Text Lines -->
+      <rect x="34" y="12" width="8" height="2" rx="1" fill="#1976d2"/>
+      <rect x="34" y="18" width="12" height="2" rx="1" fill="#1976d2"/>
+      <rect x="34" y="24" width="10" height="2" rx="1" fill="#1976d2"/>
+      <!-- Arrow -->
+      <path d="M24 36h8l-4 4 4-4l-4-4" stroke="#1976d2" stroke-width="2" fill="none"/>
+    </svg>
+    <h1>ImageToText</h1>
+  </div>
+
+  <!-- User Profile Summary -->
+  <div class="user-profile">
+    <div class="avatar">
+      {{ user.full_name?.[0]?.toUpperCase() || 'U' }}
+    </div>
+    <div class="user-info">
+      <h3 class="user-name">{{ user.full_name || 'User' }}</h3>
+      <p class="user-plan">{{ user.plan || 'Free' }} Plan</p>
+    </div>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="nav-links">
+    <a *ngFor="let item of navItems"
+       [routerLink]="item.route"
+       routerLinkActive="active"
+       class="nav-item">
+      <i class="material-icons">{{ item.icon }}</i>
+      <span>{{ item.label }}</span>
+    </a>
+  </nav>
+
+  <!-- Bottom Actions -->
+  <div class="bottom-actions">
+    <a href="https://docs.imagetotext.com" target="_blank" class="help-link">
+      <i class="material-icons">help</i>
+      <span>Help & Documentation</span>
+    </a>
+  </div>
+</aside>

@@ -1,0 +1,59 @@
+<section class="upload-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Start Converting</h2>
+      <p class="subtitle">Drop your image or click to upload</p>
+    </div>
+
+    <div class="upload-zone" 
+         (dragover)="onDragOver($event)" 
+         (dragleave)="onDragLeave($event)" 
+         (drop)="onDrop($event)"
+         [class.drag-over]="isDragging">
+      
+      <div class="upload-content">
+        <div *ngIf="!selectedFile" class="upload-prompt">
+          <div class="upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <h3>Drag & Drop Your Image Here</h3>
+          <p>or</p>
+          <button class="btn btn-primary" (click)="fileInput.click()">
+            Choose File
+          </button>
+          <input
+            #fileInput
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+            style="display: none"
+          />
+          <p class="supported-formats">
+            Supported formats: JPG, PNG, GIF, BMP
+          </p>
+        </div>
+
+        <div *ngIf="selectedFile" class="file-info">
+          <div class="selected-file">
+            <div class="file-icon">
+              <i class="fas fa-file-image"></i>
+            </div>
+            <div class="file-details">
+              <h4>{{ selectedFile.name }}</h4>
+              <p>{{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB</p>
+            </div>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="btn btn-primary" (click)="onUpload()">
+              Convert Now
+            </button>
+            <button class="btn btn-secondary" (click)="clearFile()">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+.home-page {
+  min-height: 100vh;
+  background-color: var(--bg-white);
+
+  // Add spacing between sections
+  > * {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+// Variables
+$primary-blue: #1976d2;
+$light-blue: #2196f3;
+$hover-blue: #1565c0;
+$white: #ffffff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-700: #495057;
+$sidebar-width: 280px;
+
+.sidebar {
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: $white;
+  border-right: 1px solid $gray-200;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  .brand {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid $gray-200;
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+
+      // Animation for the logo
+      path, rect, circle {
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        path, rect, circle {
+          stroke: $light-blue;
+          fill: $light-blue;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $primary-blue;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .user-profile {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid $gray-200;
+    background: linear-gradient(to right, rgba($primary-blue, 0.05), transparent);
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background-color: $primary-blue;
+      color: $white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+      box-shadow: 0 2px 4px rgba($primary-blue, 0.2);
+    }
+
+    .user-info {
+      .user-name {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $gray-700;
+      }
+
+      .user-plan {
+        margin: 0;
+        font-size: 0.875rem;
+        color: $primary-blue;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+  }
+
+  .nav-links {
+    padding: 1rem 0;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 0.875rem 1.5rem;
+      color: $gray-700;
+      text-decoration: none;
+      gap: 1rem;
+      transition: all 0.2s ease;
+      margin: 0.125rem 0.75rem;
+      border-radius: 8px;
+
+      i {
+        font-size: 1.25rem;
+        color: $gray-700;
+        width: 24px;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: rgba($primary-blue, 0.05);
+        color: $primary-blue;
+
+        i {
+          color: $primary-blue;
+        }
+      }
+
+      &.active {
+        background-color: rgba($primary-blue, 0.1);
+        color: $primary-blue;
+        font-weight: 500;
+
+        i {
+          color: $primary-blue;
+        }
+      }
+    }
+  }
+
+  .bottom-actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid $gray-200;
+    background: linear-gradient(to bottom, transparent, rgba($primary-blue, 0.02));
+
+    .help-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: $gray-700;
+      text-decoration: none;
+      padding: 0.75rem;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+
+      &:hover {
+        color: $primary-blue;
+        background-color: rgba($primary-blue, 0.05);
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// Add Material Icons font
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');

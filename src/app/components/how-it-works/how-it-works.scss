@@ -1,0 +1,161 @@
+.how-it-works {
+  padding: 5rem 0;
+  background: linear-gradient(
+    225deg,
+    var(--bg-white) 0%,
+    var(--primary-blue-light) 100%
+  );
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 1rem;
+
+    .step-card {
+      display: flex;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .step-number {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--bg-white) 100%
+        );
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--text-dark);
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex: 1;
+
+        .step-icon {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          color: var(--text-dark);
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          color: var(--text-gray);
+          line-height: 1.6;
+        }
+      }
+
+      .connector {
+        position: absolute;
+        left: 20px;
+        bottom: -2rem;
+        width: 2px;
+        height: 2rem;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-blue-light) 0%,
+          var(--bg-white) 100%
+        );
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 3rem 0;
+
+    .section-header {
+      margin-bottom: 2rem;
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .steps-container {
+      gap: 3rem;
+
+      .step-card {
+        padding: 1.5rem;
+
+        .step-number {
+          width: 32px;
+          height: 32px;
+          font-size: 1.25rem;
+          margin-right: 1rem;
+        }
+
+        .step-content {
+          .step-icon {
+            font-size: 1.75rem;
+          }
+
+          h3 {
+            font-size: 1.25rem;
+          }
+        }
+
+        .connector {
+          height: 3rem;
+          bottom: -3rem;
+        }
+      }
+    }
+  }
+}
+
+

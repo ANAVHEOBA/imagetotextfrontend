@@ -1,0 +1,18 @@
+<div class="call-to-action">
+  <div class="container">
+    <h2>Start Converting Images to Text Today</h2>
+    <p class="subtitle">Choose the plan that works best for you</p>
+
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="/register" class="btn btn-primary">Get Started Free</a>
+      <a href="/pricing" class="btn btn-secondary">View All Plans</a>
+    </div>
+  </div>
+</div>
