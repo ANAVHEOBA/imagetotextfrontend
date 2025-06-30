@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { RegisterApi } from '../../../lib/register/api';
 import { AccountType } from '../../../lib/register/types';
+import { NavbarComponent } from '../../components/shared/navbar/navbar';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NavbarComponent],
   templateUrl: './register.html',
   styleUrls: ['./register.scss']
 })

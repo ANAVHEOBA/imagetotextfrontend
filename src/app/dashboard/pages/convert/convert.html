@@ -1,0 +1,32 @@
+<div class="convert-container">
+  <div class="upload-section">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" [disabled]="isUploading">
+    <button (click)="onUpload()" [disabled]="!selectedFile || isUploading">
+      {{ isUploading ? 'Uploading...' : 'Upload Image' }}
+    </button>
+    <button (click)="clearFile()" [disabled]="!selectedFile || isUploading">Clear</button>
+  </div>
+
+  <div class="error-message" *ngIf="error">{{ error }}</div>
+
+  <app-conversion-metadata
+    *ngIf="jobId"
+    [jobId]="jobId"
+    [status]="status"
+    [originalFilename]="selectedFile?.name || null"
+    [createdAt]="createdAt"
+    [processingTimeMs]="processingTimeMs">
+  </app-conversion-metadata>
+
+  <app-conversion-result
+    [extractedText]="conversionResult"
+    [preview]="preview">
+  </app-conversion-result>
+
+  <app-conversion-actions
+    [isCompleted]="status === 'completed'"
+    (copyText)="copyText()"
+    (downloadText)="downloadText()"
+    (downloadWord)="downloadWord()">
+  </app-conversion-actions>
+</div>

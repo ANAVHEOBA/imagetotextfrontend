@@ -20,7 +20,9 @@ const PUBLIC_ENDPOINTS = [
 
 // List of protected endpoints that require authentication
 const PROTECTED_ENDPOINTS = [
-  '/auth/protected/verified/profile'
+  '/auth/protected/verified/profile',
+  '/conversion/upload',
+  '/conversion'  // This covers all conversion endpoints
 ];
 
 export const authInterceptor: HttpInterceptorFn = (

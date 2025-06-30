@@ -1,0 +1,21 @@
+<div class="conversion-result">
+  <!-- HTML Preview -->
+  <div class="preview-content" *ngIf="showPreview">
+    <div class="preview-metadata" *ngIf="preview?.metadata">
+      <span class="metadata-item" *ngIf="preview?.metadata?.format">Format: {{ preview?.metadata?.format }}</span>
+      <span class="metadata-item" *ngIf="preview?.metadata?.total_pages">Pages: {{ preview?.metadata?.total_pages }}</span>
+      <span class="metadata-item" *ngIf="preview?.metadata?.word_count">Words: {{ preview?.metadata?.word_count }}</span>
+      <span class="metadata-item" *ngIf="preview?.metadata?.last_modified">Last Modified: {{ preview?.metadata?.last_modified | date:'medium' }}</span>
+    </div>
+    <div class="preview-html word-like-preview" [innerHTML]="safeHtmlContent"></div>
+  </div>
+
+  <!-- Extracted Text -->
+  <div class="text-content" *ngIf="showExtractedText">
+    <pre>{{ extractedText }}</pre>
+  </div>
+</div>
+
+<div class="no-result" *ngIf="!showPreview && !showExtractedText">
+  <p>No content available yet.</p>
+</div> 

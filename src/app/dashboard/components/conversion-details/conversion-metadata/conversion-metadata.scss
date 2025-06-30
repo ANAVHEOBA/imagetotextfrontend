@@ -1,0 +1,46 @@
+.metadata-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .label {
+    font-weight: 500;
+    color: #6c757d;
+    min-width: 120px;
+  }
+
+  .value {
+    color: #212529;
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+
+    &.completed {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    &.processing {
+      background: #cce5ff;
+      color: #004085;
+    }
+
+    &.failed {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  }
+} 
