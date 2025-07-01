@@ -1,0 +1,100 @@
+.project-details-container {
+  padding: 2rem;
+
+  .back-link {
+    text-decoration: none;
+    color: #1976d2;
+    margin-bottom: 2rem;
+    display: inline-block;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .project-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  }
+
+  .conversions-list {
+    margin-top: 2rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      th, td {
+        padding: 1rem;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .status-completed {
+        color: #2e7d32;
+        background: #e8f5e9;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      .status-processing {
+        color: #1565c0;
+        background: #e3f2fd;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      .status-failed {
+        color: #c62828;
+        background: #ffebee;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .loading, .error, .empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+
+  .error {
+    color: #c62828;
+    
+    .retry-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #1565c0;
+      }
+    }
+  }
+} 

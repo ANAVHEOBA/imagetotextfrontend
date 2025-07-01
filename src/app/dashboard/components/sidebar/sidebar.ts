@@ -19,6 +19,7 @@ export class Sidebar {
   navItems: NavItem[] = [
     { label: 'Overview', route: '/dashboard/overview', icon: 'dashboard' },
     { label: 'Convert', route: '/dashboard/convert', icon: 'image' },
+    { label: 'Projects', route: '/dashboard/projects', icon: 'sync' },
     { label: 'History', route: '/dashboard/history', icon: 'history' },
     { label: 'Billing', route: '/dashboard/billing', icon: 'payment' },
     { label: 'Settings', route: '/dashboard/settings', icon: 'settings' }

@@ -1,0 +1,14 @@
+<div class="projects-container">
+  <div class="header">
+    <h1>My Projects</h1>
+    <button class="create-project-btn" (click)="isCreateModalVisible = true">Create Project</button>
+  </div>
+  <p>Here you can manage all of your synced projects.</p>
+  <app-project-list></app-project-list>
+</div>
+
+<app-create-project-form
+  *ngIf="isCreateModalVisible"
+  (close)="isCreateModalVisible = false"
+  (projectCreated)="handleProjectCreated()">
+</app-create-project-form> 

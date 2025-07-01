@@ -9,6 +9,8 @@ import { History } from './dashboard/pages/history/history';
 import { Billing } from './dashboard/pages/billing/billing';
 import { Settings } from './dashboard/pages/settings/settings';
 import { ConvertComponent } from './dashboard/pages/convert/convert';
+import { ProjectsPage } from './dashboard/pages/projects/projects';
+import { ProjectDetailsPage } from './dashboard/pages/project-details/project-details';
 
 export const routes: Routes = [
   {
@@ -37,6 +39,8 @@ export const routes: Routes = [
       { path: 'history', component: History },
       { path: 'billing', component: Billing },
       { path: 'settings', component: Settings },
+      { path: 'projects', component: ProjectsPage },
+      { path: 'projects/:id', component: ProjectDetailsPage },
     ]
   }
 ];
