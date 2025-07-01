@@ -11,6 +11,7 @@ import { Settings } from './dashboard/pages/settings/settings';
 import { ConvertComponent } from './dashboard/pages/convert/convert';
 import { ProjectsPage } from './dashboard/pages/projects/projects';
 import { ProjectDetailsPage } from './dashboard/pages/project-details/project-details';
+import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
   {
@@ -40,7 +41,10 @@ export const routes: Routes = [
       { path: 'billing', component: Billing },
       { path: 'settings', component: Settings },
       { path: 'projects', component: ProjectsPage },
-      { path: 'projects/:id', component: ProjectDetailsPage },
+      { 
+        path: 'projects/:id', 
+        component: ProjectDetailsPage
+      }
     ]
   }
 ];

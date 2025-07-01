@@ -7,7 +7,8 @@ import {
   CreateProjectPayload,
   Project,
   GetProjectsResponse,
-  GetConversionsResponse
+  GetConversionsResponse,
+  AssignConversionsPayload
 } from './types';
 
 @Injectable({
@@ -43,6 +44,10 @@ export class SyncApi {
 
   getUnassignedConversions(page: number, limit: number): Observable<GetConversionsResponse> {
     return this.http.get<GetConversionsResponse>(`${this.apiUrl}/conversions/unassigned/${page}/${limit}`);
+  }
+
+  assignConversions(projectId: string, payload: AssignConversionsPayload): Observable<any> {
+    return this.http.post(`${this.apiUrl}/projects/${projectId}/assign`, payload);
   }
 
   getProjectConversions(projectId: string, page: number, limit: number): Observable<GetConversionsResponse> {

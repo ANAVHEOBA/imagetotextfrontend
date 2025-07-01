@@ -1,0 +1,25 @@
+<div class="modal-overlay" (click)="close.emit()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Assign Conversions</h2>
+    <p>Select conversions to assign to this project.</p>
+
+    <div *ngIf="isLoading" class="loading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <div *ngIf="!isLoading && conversions.length === 0" class="empty-state">
+      No unassigned conversions found.
+    </div>
+
+    <div class="conversions-list">
+      <div *ngFor="let conversion of conversions" class="conversion-item">
+        <input type="checkbox" [(ngModel)]="selectedConversionIds[conversion.job_id]">
+        <label>{{ conversion.original_filename }} ({{ conversion.created_at | parseDate | date:'short' }})</label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="close.emit()" class="btn-secondary">Cancel</button>
+      <button type="button" (click)="onAssignClick()" class="btn-primary">Assign Selected</button>
+    </div>
+  </div>
+</div> 

@@ -38,4 +38,8 @@ export interface GetConversionsResponse {
   page: number;
   limit: number;
   total_pages: number;
+}
+
+export interface AssignConversionsPayload {
+  conversion_ids: string[];
 } 

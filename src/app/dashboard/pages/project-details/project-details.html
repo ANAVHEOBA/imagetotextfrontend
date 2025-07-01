@@ -13,13 +13,16 @@
   </div>
 
   <div *ngIf="project" class="project-header">
-    <h1>{{ project.name }}</h1>
-    <p>{{ project.description }}</p>
+    <div class="header-main">
+      <h1>{{ project.name }}</h1>
+      <p>{{ project.description }}</p>
+    </div>
     <div class="project-meta">
-      <span>Created: {{ project.created_at | date:'medium' }}</span>
+      <span>Created: {{ project.created_at | parseDate | date:'medium' }}</span>
       <span>Conversions: {{ project.conversion_count }}</span>
       <span>Storage: {{ project.total_storage_bytes | number }} bytes</span>
     </div>
+    <button (click)="isAssignModalVisible = true" class="btn-assign">Assign Conversions</button>
   </div>
 
   <div *ngIf="!isLoading && conversions.length > 0" class="conversions-list">
@@ -38,7 +41,7 @@
           <td>
             <span [class]="'status-' + conversion.status">{{ conversion.status }}</span>
           </td>
-          <td>{{ conversion.created_at | date:'short' }}</td>
+          <td>{{ conversion.created_at | parseDate | date:'short' }}</td>
         </tr>
       </tbody>
     </table>
@@ -47,4 +50,10 @@
   <div *ngIf="!isLoading && !error && conversions.length === 0" class="empty-state">
     <p>No conversions found for this project.</p>
   </div>
-</div> 
+</div>
+
+<app-unassigned-conversions
+  *ngIf="isAssignModalVisible"
+  (close)="isAssignModalVisible = false"
+  (conversionsSelected)="handleConversionsAssigned($event)">
+</app-unassigned-conversions> 
